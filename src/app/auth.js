@@ -1,15 +1,14 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { authConfig } from "./authconfig";
-import { User } from "./lib/models";
+import { authConfig } from "./authconfig.js";
+import { connecToDB } from "./lib/utils.js";
+import { User } from "../app/lib/models.js";
 import bcrypt from "bcrypt";
-import { connecToDB } from "./lib/utils.js"
 
 const login = async (credentials) => {
   try {
-    connecToDB();
+    connecToDB()
     const user = await User.findOne({ matricule: credentials.matricule });
-
     if (!user) throw new Error("Wrong credentials!");
 
     const isPasswordCorrect = await bcrypt.compare(
@@ -25,7 +24,6 @@ const login = async (credentials) => {
     throw new Error("Failed to login!");
   }
 };
-
 
 export const { signIn, signOut, auth } = NextAuth({
   ...authConfig,
@@ -65,4 +63,3 @@ export const { signIn, signOut, auth } = NextAuth({
     },
   },
 });
-

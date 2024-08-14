@@ -15,6 +15,7 @@ const LoginForm = () => {
     const data = await authenticate(formData);
     data.error && setErr(data.error);
   }
+
   return (
     <div className={styles.container}>
       <div className={styles.login}>

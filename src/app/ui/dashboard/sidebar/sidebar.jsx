@@ -35,7 +35,6 @@ const menuItems = [
 
 const Sidebar = async() => {
   const { user } = await auth();
-
   return (
     <div className={styles.container}>
       <div className={styles.user}>
