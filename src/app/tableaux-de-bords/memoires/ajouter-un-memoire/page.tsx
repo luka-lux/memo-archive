@@ -1,7 +1,6 @@
 import styles from "../../../ui/dashboard/memoires/addMemoire/addMemoire.module.css";
 import { addMemoire } from "../../../lib/actions.js";
 
-
 const AddMemoirePage = () => {
   return (
     <div className={styles.container}>
@@ -15,6 +14,7 @@ const AddMemoirePage = () => {
         </select>
         <input type="text" placeholder="Spécialité" name="specialite" required />
         <input type="text" placeholder="Année de soutenance" name="annee" required />
+        <input type="file" name="pdfFile" accept="application/pdf" placeholder="Rapport memoire" required />
         <textarea
           required
           name="intro"

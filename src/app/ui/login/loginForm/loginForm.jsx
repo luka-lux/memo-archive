@@ -13,7 +13,7 @@ const LoginForm = () => {
   const [err, setErr] = useState();
   const handleLogin = async (formData) =>{
     const data = await authenticate(formData);
-    data.error && setErr(data.error);
+    data?.error && setErr(data.error);
   }
   return (
     <div className={styles.container}>

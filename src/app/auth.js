@@ -1,9 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { authConfig } from "./authconfig";
 import { User } from "./lib/models";
 import bcrypt from "bcrypt";
-import { connecToDB } from "./lib/utils.js"
+import connecToDB from "./lib/utils.js"
 
 const login = async (credentials) => {
   try {
@@ -21,14 +20,16 @@ const login = async (credentials) => {
 
     return user;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to login!");
   }
 };
 
 
 export const { signIn, signOut, auth } = NextAuth({
-  ...authConfig,
+  pages: {
+    signIn: "/login",
+  },
   providers: [
     CredentialsProvider({
       async authorize(credentials) {

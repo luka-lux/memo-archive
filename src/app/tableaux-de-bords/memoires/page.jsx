@@ -9,7 +9,8 @@ import { deleteMemoire } from "../../lib/actions.js";
 const MemoiresPage = async ({searchParams}) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
-  const {count,memoires} = await fetchMemoires(q, page);
+  const {count, memoires} = await fetchMemoires(q, page);
+
   function majusOfOne(string) {
     if (!string) return "";
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();

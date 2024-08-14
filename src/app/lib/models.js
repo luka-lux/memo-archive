@@ -65,6 +65,10 @@ const memoireShema = new mongoose.Schema(
     required: true,
     unique: true,
   },
+  pdfPath: {
+    type: String,
+    required: true
+  },
   },
   {timestamps: true,}
 );
