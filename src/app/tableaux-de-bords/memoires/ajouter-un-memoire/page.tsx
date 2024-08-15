@@ -1,10 +1,20 @@
+'use client'
 import styles from "../../../ui/dashboard/memoires/addMemoire/addMemoire.module.css";
 import { addMemoire } from "../../../lib/actions.js";
+import { useRouter } from 'next/navigation';
 
 const AddMemoirePage = () => {
+  const router = useRouter();
+
+  const handleAddMemoire = async (formData) => {
+    await addMemoire(formData);
+
+    router.push('/tableaux-de-bords/memoires');
+  }
+
   return (
     <div className={styles.container}>
-      <form action={addMemoire} className={styles.form}>
+      <form action={handleAddMemoire} className={styles.form}>
         <input type="text" placeholder="Thème" name="theme" required />
         <select name="niveau" id="niveau">
           <option value="general">Niveau</option>

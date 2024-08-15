@@ -7,7 +7,6 @@ import connecToDB from "./utils.js";
 import bcrypt from "bcrypt";
 import { signIn } from "../auth.js"
 
-
 export const addUser = async (formData) => {
   const { nom, prenom, matricule, niveau, specialite, password, isAdmin } = Object.fromEntries(formData);
 
@@ -73,9 +72,6 @@ export const addMemoire = async (formData) => {
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
-
-      revalidatePath("/tableaux-de-bords/memoires");
-      redirect("/tableaux-de-bords/memoires");
 
     } catch (error) {
       console.error('Erreur lors de l\'ajout du mémoire.', error);
