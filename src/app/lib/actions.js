@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache.js";
 import { redirect } from "next/navigation.js";
 import { Memoire, User } from "./models.js";
-import { connecToDB } from "./utils.js";
+import connecToDB from "./utils.js";
 import bcrypt from "bcrypt";
 import { signIn } from "../auth.js"
 
@@ -28,7 +28,7 @@ export const addUser = async (formData) => {
 
     await newUser.save();
   }catch(err){
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to create  user!");
   }
 
@@ -52,7 +52,7 @@ export const updateUser = async (formData) => {
     Object.keys(updateFields).forEach((key)=>(updateFields[key]==="" || undefined) && delete updateFields[key]);
     await User.findByIdAndUpdate(id, updateFields)
   }catch(err){
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to update  user!");
   }
   revalidatePath("/tableaux-de-bords/utilisateurs");
@@ -60,27 +60,26 @@ export const updateUser = async (formData) => {
 };
 
 export const addMemoire = async (formData) => {
-  const { theme, niveau, specialite, annee, intro } = Object.fromEntries(formData);
 
-  try{
-    connecToDB();
+  const baseURL = process.env.BASE_URL
+  const endpoint = `${baseURL}/create-memoire`
 
-    const newMemoire = new Memoire({
-      theme,
-      niveau,
-      specialite,
-      annee,
-      intro,
-    });
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
 
-    await newMemoire.save();
-  }catch(err){
-    console.log(err);
-    throw new Error("Failed to create memoire!");
-  }
+      revalidatePath("/tableaux-de-bords/memoires");
+      redirect("/tableaux-de-bords/memoires");
 
-  revalidatePath("/tableaux-de-bords/memoires");
-  redirect("/tableaux-de-bords/memoires");
+    } catch (error) {
+      console.error('Erreur lors de l\'ajout du mémoire.', error);
+    }
 };
 
 export const updateMemoire = async (formData) => {
@@ -97,7 +96,7 @@ export const updateMemoire = async (formData) => {
     Object.keys(updateFields).forEach((key)=>(updateFields[key]==="" || undefined) && delete updateFields[key]);
     await Memoire.findByIdAndUpdate(id, updateFields)
   }catch(err){
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to update  memoire!");
   }
   revalidatePath("/tableaux-de-bords/memoires");
@@ -112,7 +111,7 @@ export const deleteUser = async (formData) => {
 
     await User.findByIdAndDelete(id);
   }catch(err){
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to delete user!");
   }
 
@@ -126,7 +125,7 @@ export const deleteMemoire = async (formData) => {
 
     await Memoire.findByIdAndDelete(id);
   }catch(err){
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to delete memoire!");
   }
   revalidatePath("/tableaux-de-bords/memoires");
