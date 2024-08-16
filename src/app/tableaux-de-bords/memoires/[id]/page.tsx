@@ -42,7 +42,6 @@ const SingleProductPage = async ({params}) => {
           <button type="submit">Mettre à jour</button>
         </form>
       </div>
-
       <PdfViewer pdfPath={memoire.pdfPath} />
     </div>
   );

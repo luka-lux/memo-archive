@@ -74,8 +74,7 @@ export const addMemoire = async (formData) => {
         throw new Error('Failed to submit form');
       }
 
-      revalidatePath("/tableaux-de-bords/memoires");
-      redirect("/tableaux-de-bords/memoires");
+      window.location.href = "/tableaux-de-bords/memoires"
 
     } catch (error) {
       console.error('Erreur lors de l\'ajout du mémoire.', error);
