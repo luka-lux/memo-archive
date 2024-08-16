@@ -12,3 +12,5 @@ export default async function connecToDB () {
     throw new Error(error);
   }
 }
+
+export const isClient = typeof window !== 'undefined'
