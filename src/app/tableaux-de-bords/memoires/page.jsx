@@ -42,7 +42,7 @@ const MemoiresPage = async ({searchParams}) => {
               <td>{memoire.annee}</td>
               <td>
                 <div className={styles.buttons}>
-                <Link href={`/tableaux-de-bords/memoires/${memoire.id}`}>
+                  <Link href={`/tableaux-de-bords/memoires/${memoire.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       <FiEdit />
                     </button>

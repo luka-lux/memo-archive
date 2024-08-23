@@ -4,7 +4,7 @@ import connecToDB  from "./utils.js";
 export const fetchUsers = async (q,page) => {
   const regex = new RegExp(q, "i");
 
-  const ITEM_PER_PAGE = 2 ;
+  const ITEM_PER_PAGE = 4 ;
 
   try{
     connecToDB();
@@ -31,7 +31,7 @@ export const fetchUser = async (id) => {
 export const fetchMemoires = async (q,page) => {
   const regex = new RegExp(q, "i");
 
-  const ITEM_PER_PAGE = 2 ;
+  const ITEM_PER_PAGE = 10 ;
 
   try{
     connecToDB();

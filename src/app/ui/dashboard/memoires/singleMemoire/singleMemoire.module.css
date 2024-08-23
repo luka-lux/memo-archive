@@ -3,6 +3,12 @@
   gap: 50px;
   margin-top: 20px;
 }
+.into{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  text-decoration: underline solid;
+}
 
 .infoContainer {
   flex: 1;

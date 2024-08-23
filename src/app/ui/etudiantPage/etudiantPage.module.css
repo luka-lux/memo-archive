@@ -1,0 +1,239 @@
+.container{
+  font-family: Arial, sans-serif; /* Police principale du site */
+  background-color: #f4f4f4; 
+}
+.navbar {
+  background: #2e374a;
+  padding: 15px;
+  position: fixed; /* Fixer la navbar en haut */
+  width: 100%; /* Prendre toute la largeur de la page */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* S'assurer que la navbar est au-dessus du reste */
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.navLinks {
+  list-style-type: none;
+  display: flex;
+}
+
+.Linksli {
+  margin-right: 15px;
+}
+
+.Links{
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.Links:hover {
+  color: #f4f4f4;
+}
+
+/* La barre de recherche occupe tout l'espace restant */
+.searchForm {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%; /* Prend tout l'espace restant */
+  max-width: 900px; /* Limite la largeur si besoin */
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #333;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 15px 10px 40px; /* Espace pour l'icône */
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+  background-color: #f4f4f4;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Filtre déroulant */
+.filterContainer {
+  margin-left: 15px; /* Espace entre la barre de recherche et le filtre */
+}
+
+.filterSelect {
+  padding: 10px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+  border: 1px solid #ccc; /* Bordure légère */
+  background-color: #fff; /* Couleur de fond */
+  color: #333; /* Couleur du texte */
+  font-size: 16px; /* Taille du texte */
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+}
+
+.favoriteLink {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 24px;
+}
+
+.favoriteLink:hover .favoriteIcon {
+  color: #f4f4f4;
+}
+
+.profileMenuContainer {
+  position: relative; /* Positionne le menu déroulant */
+}
+
+.profileLink {
+  text-decoration: none;
+}
+
+.profileImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Menu déroulant (masqué par défaut) */
+.dropdownMenu {
+  display: none; /* Masqué par défaut */
+  position: absolute; /* Positionne le menu déroulant */
+  top: 50px; /* Positionne le menu juste en dessous de l'image du profil */
+  right: 0; /* Aligne le menu à droite */
+  background-color: #fff; /* Couleur de fond du menu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  border-radius: 10px; /* Coins arrondis */
+  overflow: hidden; /* Cache les débordements */
+  width: 150px; /* Largeur fixe du menu */
+}
+
+/* Liens et bouton dans le menu déroulant */
+.dropdownLink,
+.logoutBtn {
+  display: block; /* Affiche les éléments en bloc */
+  padding: 10px; /* Espacement intérieur */
+  text-align: center; /* Centre le texte */
+  color: #333; /* Couleur du texte */
+  text-decoration: none; /* Enlève la décoration du texte */
+  font-size: 16px; /* Taille du texte */
+  border-bottom: 1px solid #ccc; /* Bordure entre les éléments */
+}
+
+.logoutBtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.logoutBtn:hover,
+.dropdownLink:hover {
+  background-color: #f1f1f1;
+}
+
+/* Affiche le menu déroulant au survol ou au clic */
+.profileMenuContainer:hover .dropdownMenu,
+.profileMenuContainer:focus-within .dropdownMenu {
+  display: block; /* Affiche le menu déroulant lorsque l'utilisateur survole ou clique */
+}
+
+/* Texte avant les cartes */
+.pageTitle {
+  text-align: center; /* Centre le texte horizontalement */
+  margin-top: 80px; /* Ajoute un espacement au-dessus du titre (compense la NavBar fixe) */
+  margin-bottom: 5px; /* Ajoute un espacement en bas, avant les cartes */
+}
+
+.pageTitleh2 {
+  font-size: 28px; /* Taille du texte du titre */
+  font-weight: bold; /* Le rend en gras */
+  color: #333; /* Couleur sombre pour le titre */
+}
+
+/* Section du contenu qui contient les cartes */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Diminue l'espacement entre les cartes */
+  padding: 10px; /* Ajoute un peu de marge intérieure autour du contenu */
+}
+
+/* Styles pour chaque carte */
+.card {
+  background-color: #fff; /* Fond blanc pour chaque carte */
+  border-radius: 10px; /* Bordures arrondies */
+  padding: 20px; /* Espacement intérieur pour le contenu de la carte */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner du relief */
+  width: 100%; /* Chaque carte prend toute la largeur disponible */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide pour l'effet hover */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Légère élévation lorsque l'utilisateur survole la carte */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmentation de l'ombre au survol */
+}
+
+/* Section contenant le thème de la carte */
+.cardTheme {
+  margin-bottom: 15px; /* Ajoute un espace sous le thème avant les infos */
+}
+
+.cardThemep {
+  font-weight: bold; /* Le texte du thème est en gras */
+  font-size: 18px; /* Le texte du thème est légèrement plus grand */
+  color: #333; /* Couleur sombre pour le texte */
+}
+
+/* Section contenant les informations supplémentaires (niveau, spécialité, année) */
+.cardInfo {
+  display: flex; 
+  justify-content: space-between; /* Espace les éléments de manière égale */
+  text-align: center; /* Centre le texte à l'intérieur des éléments */
+}
+
+.cardInfospan {
+  font-size: 16px; /* Taille du texte pour les informations */
+  color: #555; /* Couleur légèrement plus claire pour les informations */
+}

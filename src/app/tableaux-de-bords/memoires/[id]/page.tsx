@@ -4,7 +4,7 @@ import styles from "../../../ui/dashboard/memoires/singleMemoire/singleMemoire.m
 import PdfViewer from '../../../ui/common/PdfViewer.jsx'
 
 
-const SingleProductPage = async ({params}) => {
+const SingleMemoirePage = async ({params}) => {
   const { id } = params;
   const memoire = await fetchMemoire(id);
 
@@ -47,4 +47,4 @@ const SingleProductPage = async ({params}) => {
   );
 };
 
-export default SingleProductPage;
+export default SingleMemoirePage;

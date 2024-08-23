@@ -18,7 +18,6 @@ const AddMemoirePage = () => {
         <input type="text" placeholder="Thème" name="theme" required />
         <select name="niveau" id="niveau">
           <option value="general">Niveau</option>
-          <option value="DUT">DUT</option>
           <option value="LICENCE">LICENCE</option>
           <option value="MASTER">MASTER</option>
         </select>
